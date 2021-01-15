@@ -4,7 +4,7 @@
     <div class="container mx-auto px-4 pt-4">
       <div class="grid grid-cols-2 gap-4">
         <div v-for="gift in gifts" :key="gift.id">
-          <GiftCard :gift="gift" />
+          <GiftCard :gift="gift" :prefix="prefix" />
         </div>
       </div>
     </div>
@@ -26,8 +26,13 @@ export default {
       query: giftsQuery,
     },
   },
+  computed: {
+    prefix() {
+      return process.env.API_URL === undefined ? 'http://localhost:1337' : ''
+    },
+  },
   mounted() {
-    console.log(process.env.IMG_URL)
+    console.log(process.env.API_URL)
   },
 }
 </script>

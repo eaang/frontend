@@ -1,7 +1,7 @@
 export default {
+  dev: process.env.NODE_ENV !== 'production',
   publicRuntimeConfig: {
     apiUrl: process.env.API_URL || 'http://localhost:1337',
-    imgUrl: process.env.IMG_URL || 'http://localhost:1337',
   },
   privateRuntimeConfig: {},
   // Target (https://go.nuxtjs.dev/config-target)

@@ -7,7 +7,7 @@
       }"
     >
       <div>
-        <img :src="$config.imgUrl + gift.image.url" alt="" />
+        <img :src="prefix + gift.image.url" alt="" />
       </div>
       <div class="font-bold text-base">
         {{ gift.name }}
@@ -25,6 +25,10 @@ export default {
   props: {
     gift: {
       type: Object,
+    },
+    prefix: {
+      type: String,
+      default: '',
     },
   },
   computed: {
