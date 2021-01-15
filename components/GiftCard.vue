@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <NuxtLink
-      :to="{
-        name: 'gifts-slug',
-        params: { slug: gift.id },
-      }"
-    >
-      <div>
-        <img :src="imageUrl" alt="" />
+  <NuxtLink
+    :to="{
+      name: 'gifts-slug',
+      params: { slug: gift.id },
+    }"
+    ><div class="flex flex-col h-full">
+      <div class="flex-grow">
+        <img class="h-full object-cover" :src="imageUrl" alt="" />
       </div>
       <div class="font-bold text-base">
         {{ gift.name }}
@@ -15,9 +14,9 @@
       <div class="font-semibold text-sm">
         {{ gift.brand.name }}
       </div>
-      <div class="font-bold text-base">{{ displayPrice }}</div></NuxtLink
-    >
-  </div>
+      <div class="font-bold text-base">{{ displayPrice }}</div>
+    </div></NuxtLink
+  >
 </template>
 
 <script>

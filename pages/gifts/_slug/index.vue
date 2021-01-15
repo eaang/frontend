@@ -36,13 +36,13 @@
       </div>
       <div class="container mx-auto px-4 py-12 space-y-12">
         <!-- Gift Description -->
-        <div>
-          <div class="title">1. About</div>
+        <div v-if="gift.description">
+          <div class="title">About</div>
           <div class="text">{{ gift.description }}</div>
         </div>
         <!-- Why Buy -->
         <div>
-          <div class="title">2. Why you should buy</div>
+          <div class="title">Why you should buy</div>
           <div class="grid grid-cols-4 gap-y-6 text">
             <div class="icon-box">
               <div class="icon"><Smile /></div>
@@ -69,7 +69,7 @@
         </div>
         <!-- The Brand -->
         <div>
-          <div class="title">3. About the brand</div>
+          <div class="title">About the brand</div>
           <div class="flex justify-center mb-6">
             <img
               class="h-20 object-contain"
@@ -81,7 +81,7 @@
         </div>
         <!-- How to Use -->
         <div>
-          <div class="title">4. How to use</div>
+          <div class="title">How to use</div>
           <div class="text space-y-2">
             <div>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
