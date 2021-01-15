@@ -1,5 +1,4 @@
 export default {
-  dev: process.env.NODE_ENV !== 'production',
   publicRuntimeConfig: {
     apiUrl: process.env.API_URL || 'http://localhost:1337',
   },

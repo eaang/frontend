@@ -7,7 +7,7 @@
       }"
     >
       <div>
-        <img :src="prefix + gift.image.url" alt="" />
+        <img :src="imageUrl" alt="" />
       </div>
       <div class="font-bold text-base">
         {{ gift.name }}
@@ -26,10 +26,6 @@ export default {
     gift: {
       type: Object,
     },
-    prefix: {
-      type: String,
-      default: '',
-    },
   },
   computed: {
     displayPrice() {
@@ -46,6 +42,18 @@ export default {
         })
       )
     },
+    imageUrl() {
+      if (process.env.NODE_ENV !== 'development') {
+        return this.gift.image.url
+      } else {
+        return this.$config.apiUrl + this.gift.image.url
+      }
+    },
+  },
+  mounted() {
+    console.log(process.env.NODE_ENV)
+    console.log(this.gift.image.url)
+    console.log(this.$config.apiUrl)
   },
 }
 </script>
