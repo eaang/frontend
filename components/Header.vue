@@ -5,7 +5,7 @@
         class="container mx-auto px-4 flex items-center h-full text-white relative"
       >
         <div class="absolute inset-y-0 left-0 flex items-center pl-4">
-          <div class="h-6 w-6">
+          <div class="h-8 w-8" @click="$nuxt.$emit('openSidebar')">
             <Menu />
           </div>
         </div>
@@ -18,7 +18,3 @@
     </div>
   </client-only>
 </template>
-
-<script>
-export default {}
-</script>

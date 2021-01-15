@@ -38,10 +38,34 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: process.env.API_URL || 'http://localhost:1337',
+  },
+
+  // Auth module configuration (https://auth.nuxtjs.org)
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: 'auth/local',
+            method: 'post',
+            propertyName: 'jwt',
+          },
+          user: {
+            url: 'users/me',
+            method: 'get',
+            propertyName: false,
+          },
+          logout: false,
+        },
+      },
+    },
+  },
 
   // Apollo module configuration
   apollo: {
