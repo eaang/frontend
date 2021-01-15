@@ -11,8 +11,10 @@
     "lint": "yarn lint:style"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.12.2",
     "core-js": "^3.6.5",
+    "graphql": "^15.4.0",
     "nuxt": "^2.14.6"
   },
   "devDependencies": {
@@ -24,7 +26,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "postcss": "^7.0.35",
     "prettier": "^2.1.2",
-    "stylelint": "^13.7.2",
+    "stylelint": "^13.8.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"

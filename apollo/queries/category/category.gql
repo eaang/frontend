@@ -1,0 +1,18 @@
+query Category($id: ID!) {
+  category(id: $id) {
+    gifts(sort: "name:asc") {
+      id
+      name
+      price
+      category {
+        name
+      }
+      brand {
+        name
+      }
+      image {
+        url
+      }
+    }
+  }
+}

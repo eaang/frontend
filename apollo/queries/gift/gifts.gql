@@ -1,0 +1,13 @@
+query Gifts {
+  gifts(sort: "name:asc") {
+    id
+    name
+    price
+    brand {
+      name
+    }
+    image {
+      url
+    }
+  }
+}

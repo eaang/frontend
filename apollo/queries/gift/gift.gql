@@ -1,0 +1,21 @@
+query Gift($id: ID!) {
+  gift(id: $id) {
+    id
+    name
+    description
+    price
+    category {
+      name
+    }
+    brand {
+      name
+      description
+      logo {
+        url
+      }
+    }
+    image {
+      url
+    }
+  }
+}
