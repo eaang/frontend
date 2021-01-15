@@ -5,7 +5,7 @@
       <div class="container mx-auto px-4 pt-4 space-y-6">
         <!-- Picture -->
         <div>
-          <img :src="apiUrl + gift.image.url" alt="" />
+          <img :src="imageUrl" alt="" />
           <div class="text-2xl font-bold">{{ gift.name }}</div>
           <div class="text-2xl font-bold">{{ displayPrice }}</div>
         </div>
@@ -71,11 +71,7 @@
         <div>
           <div class="title">3. About the brand</div>
           <div class="flex justify-center mb-6">
-            <img
-              class="h-20 object-contain"
-              :src="apiUrl + gift.brand.logo.url"
-              alt=""
-            />
+            <img class="h-20 object-contain" :src="logoUrl" alt="" />
           </div>
           <div class="text">{{ gift.brand.description }}</div>
         </div>
@@ -151,6 +147,20 @@ export default {
           style: 'decimal',
         })
       )
+    },
+    imageUrl() {
+      if (process.env.API_URL) {
+        return this.gift.image.url
+      } else {
+        return apiUrl + this.gift.image.url
+      }
+    },
+    logoUrl() {
+      if (process.env.API_URL) {
+        return this.gift.brand.logo.url
+      } else {
+        return apiUrl + this.gift.brand.logo.url
+      }
     },
   },
 }
