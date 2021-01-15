@@ -1,5 +1,5 @@
 <template>
-  <div class="btn w-full flex items-center py-2" :class="classes">
+  <div class="btn w-full flex items-center py-4" :class="classes">
     <div class="w-full">{{ text }}</div>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .btn {
-  @apply text-sm text-center;
+  @apply text-center uppercase;
 }
 .primary {
   @apply bg-purple-800 text-white font-bold;
