@@ -21,7 +21,7 @@
 </template>
 
 <script>
-const apiUrl = process.env.API_URL || 'http://localhost:1337'
+const apiUrl = process.env.apiUrl
 
 export default {
   data() {
