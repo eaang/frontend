@@ -7,7 +7,7 @@
       }"
     >
       <div>
-        <img :src="imgUrl + gift.image.url" alt="" />
+        <img :src="imgUrl" alt="" />
       </div>
       <div class="font-bold text-base">
         {{ gift.name }}
@@ -21,14 +21,7 @@
 </template>
 
 <script>
-const imgUrl = process.env.imgUrl
-
 export default {
-  data() {
-    return {
-      imgUrl: imgUrl,
-    }
-  },
   props: {
     gift: {
       type: Object,
@@ -48,6 +41,11 @@ export default {
           style: 'decimal',
         })
       )
+    },
+    imgUrl() {
+      return process.env.API_URL
+        ? this.gift.image.url
+        : process.env.apiUrl + this.gift.image.url
     },
   },
 }
