@@ -50,10 +50,5 @@ export default {
       }
     },
   },
-  mounted() {
-    console.log(process.env.NODE_ENV)
-    console.log(this.gift.image.url)
-    console.log(this.$config.apiUrl)
-  },
 }
 </script>

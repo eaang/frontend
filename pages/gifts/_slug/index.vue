@@ -5,7 +5,7 @@
       <div class="container mx-auto px-4 pt-4 space-y-6">
         <!-- Picture -->
         <div class="space-y-2">
-          <img :src="$config.imgUrl + gift.image.url" alt="" />
+          <img :src="imagePrefix + gift.image.url" alt="" />
           <div class="text-2xl font-bold">{{ gift.name }}</div>
           <div class="text-2xl font-bold">{{ displayPrice }}</div>
         </div>
@@ -73,7 +73,7 @@
           <div class="flex justify-center mb-6">
             <img
               class="h-20 object-contain"
-              :src="$config.imgUrl + gift.brand.logo.url"
+              :src="imagePrefix + gift.brand.logo.url"
               alt=""
             />
           </div>
@@ -149,6 +149,13 @@ export default {
           style: 'decimal',
         })
       )
+    },
+    imagePrefix() {
+      if (process.env.NODE_ENV !== 'development') {
+        return ''
+      } else {
+        return this.$config.apiUrl
+      }
     },
   },
 }
