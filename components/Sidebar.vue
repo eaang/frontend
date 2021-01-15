@@ -15,13 +15,22 @@
       <div class="text-white text-sm space-y-2 self-end">
         <div>How It Works</div>
         <div>About Us</div>
-        <div>Log In</div>
-        <div>Sign Up</div>
+        <div v-if="!isAuthenticated">Log In</div>
+        <div v-if="!isAuthenticated">
+          <nuxt-link to="/users/register">Sign Up</nuxt-link>
+        </div>
+        <div v-else>Log Out</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+  },
+}
 </script>
