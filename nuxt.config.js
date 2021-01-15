@@ -55,5 +55,6 @@ export default {
   // API URls
   env: {
     apiUrl: process.env.API_URL || 'http://localhost:1337',
+    imgUrl: process.env.IMG_URL || 'http://localhost:1337',
   },
 }

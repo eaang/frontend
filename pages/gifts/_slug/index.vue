@@ -5,7 +5,7 @@
       <div class="container mx-auto px-4 pt-4 space-y-6">
         <!-- Picture -->
         <div>
-          <img :src="imageUrl" alt="" />
+          <img :src="imgUrl + gift.image.url" alt="" />
           <div class="text-2xl font-bold">{{ gift.name }}</div>
           <div class="text-2xl font-bold">{{ displayPrice }}</div>
         </div>
@@ -71,7 +71,11 @@
         <div>
           <div class="title">3. About the brand</div>
           <div class="flex justify-center mb-6">
-            <img class="h-20 object-contain" :src="logoUrl" alt="" />
+            <img
+              class="h-20 object-contain"
+              :src="imgUrl + gift.brand.logo.url"
+              alt=""
+            />
           </div>
           <div class="text">{{ gift.brand.description }}</div>
         </div>
@@ -105,7 +109,7 @@
 
 <script>
 import giftQuery from '~/apollo/queries/gift/gift'
-const apiUrl = process.env.API_URL || 'http://localhost:1337'
+const imgUrl = process.env.imgUrl
 
 const currencyOptions = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -117,7 +121,7 @@ export default {
     return {
       gift: Object,
       quantity: 1,
-      apiUrl: apiUrl,
+      imgUrl: imgUrl,
     }
   },
   apollo: {
@@ -147,20 +151,6 @@ export default {
           style: 'decimal',
         })
       )
-    },
-    imageUrl() {
-      if (process.env.API_URL) {
-        return this.gift.image.url
-      } else {
-        return apiUrl + this.gift.image.url
-      }
-    },
-    logoUrl() {
-      if (process.env.API_URL) {
-        return this.gift.brand.logo.url
-      } else {
-        return apiUrl + this.gift.brand.logo.url
-      }
     },
   },
 }
