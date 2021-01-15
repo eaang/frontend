@@ -5,7 +5,13 @@
       <div class="container mx-auto px-4 pt-4 space-y-6">
         <!-- Picture -->
         <div class="space-y-2">
-          <img :src="imagePrefix + gift.image.url" alt="" />
+          <div class="flex justify-center">
+            <img
+              class="h-64 w-64 object-cover"
+              :src="imagePrefix + gift.image.url"
+              alt=""
+            />
+          </div>
           <div class="text-2xl font-bold">{{ gift.name }}</div>
           <div class="text-2xl font-bold">{{ displayPrice }}</div>
         </div>
