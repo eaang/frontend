@@ -5,7 +5,7 @@
       <div class="container mx-auto px-4 pt-4 space-y-6">
         <!-- Picture -->
         <div>
-          <img :src="'http://localhost:1337' + gift.image.url" alt="" />
+          <img :src="apiUrl + gift.image.url" alt="" />
           <div class="text-2xl font-bold">{{ gift.name }}</div>
           <div class="text-2xl font-bold">{{ displayPrice }}</div>
         </div>
@@ -73,7 +73,7 @@
           <div class="flex justify-center mb-6">
             <img
               class="h-20 object-contain"
-              :src="'http://localhost:1337' + gift.brand.logo.url"
+              :src="apiUrl + gift.brand.logo.url"
               alt=""
             />
           </div>
@@ -109,6 +109,7 @@
 
 <script>
 import giftQuery from '~/apollo/queries/gift/gift'
+const apiUrl = process.env.API_URL || 'http://localhost:1337'
 
 const currencyOptions = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -120,6 +121,7 @@ export default {
     return {
       gift: Object,
       quantity: 1,
+      apiUrl: apiUrl,
     }
   },
   apollo: {
