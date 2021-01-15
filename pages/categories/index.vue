@@ -26,5 +26,8 @@ export default {
       query: giftsQuery,
     },
   },
+  mounted() {
+    console.log(process.env.IMG_URL)
+  },
 }
 </script>

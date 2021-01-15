@@ -1,4 +1,9 @@
 export default {
+  publicRuntimeConfig: {
+    apiUrl: process.env.API_URL || 'http://localhost:1337',
+    imgUrl: process.env.IMG_URL || 'http://localhost:1337',
+  },
+  privateRuntimeConfig: {},
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
 
@@ -51,9 +56,4 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
-
-  // API URls
-  env: {
-    apiUrl: process.env.API_URL || 'http://localhost:1337',
-  },
 }

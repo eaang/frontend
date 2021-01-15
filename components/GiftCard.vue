@@ -7,7 +7,7 @@
       }"
     >
       <div>
-        <img :src="imgUrl" alt="" />
+        <img :src="$config.imgUrl + gift.image.url" alt="" />
       </div>
       <div class="font-bold text-base">
         {{ gift.name }}
@@ -41,11 +41,6 @@ export default {
           style: 'decimal',
         })
       )
-    },
-    imgUrl() {
-      return process.env.API_URL
-        ? this.gift.image.url
-        : process.env.apiUrl + this.gift.image.url
     },
   },
 }
