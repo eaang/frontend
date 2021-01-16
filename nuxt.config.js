@@ -1,6 +1,9 @@
+const apiUrl = process.env.API_URL || 'http://localhost:1337'
+const siteUrl = process.env.API_URL || 'http://localhost:3000'
+
 export default {
   publicRuntimeConfig: {
-    apiUrl: process.env.API_URL || 'http://localhost:1337',
+    apiUrl: apiUrl,
   },
   privateRuntimeConfig: {},
   // Target (https://go.nuxtjs.dev/config-target)
@@ -21,7 +24,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~plugins/axios'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -43,11 +46,14 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: process.env.API_URL || 'http://localhost:1337',
+    baseURL: apiUrl,
   },
 
   // Auth module configuration (https://auth.nuxtjs.org)
   auth: {
+    redirect: {
+      login: siteUrl + '/users/login',
+    },
     strategies: {
       local: {
         token: {

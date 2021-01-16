@@ -9,8 +9,8 @@
         </div>
       </div>
       <div class="flex-grow flex justify-center">
-        <router-link to="/"
-          ><div class="font-bold text-lg">Gift Ellie</div></router-link
+        <NuxtLink to="/"
+          ><div class="font-bold text-lg">Gift Ellie</div></NuxtLink
         >
       </div>
     </div>

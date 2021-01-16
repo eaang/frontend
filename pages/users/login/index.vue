@@ -1,17 +1,11 @@
 <template>
   <div class="container mx-auto mt-12 px-6">
-    <div>{{ loggedInUser }}</div>
     <div class="font-bold text-center text-xl w-full">Welcome back!</div>
     <div class="my-12">
       <Notification v-if="error" type="danger" :message="error" />
     </div>
     <!-- Signup Form -->
-    <form
-      v-if="!isAuthenticated"
-      class="my-6"
-      method="post"
-      @submit.prevent="login"
-    >
+    <form class="my-6" method="post" @submit.prevent="login">
       <div class="space-y-6 mb-12">
         <div class="field">
           <label class="label">Email</label>
