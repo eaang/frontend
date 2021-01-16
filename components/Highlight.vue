@@ -1,9 +1,11 @@
 <template>
   <div class="w-full" v-if="!loading">
-    <div class="title w-full">A simple but memorable gift?</div>
-    <div class="flex items-center justify-between h-48 space-x-4">
+    <div class="font-bold text-2xl">
+      Looking for a simple but memorable gift?
+    </div>
+    <div class="flex items-center justify-between h-36 space-x-4">
       <div class="space-y-6">
-        <div class="font-semibold text-sm">{{ highlight.description }}</div>
+        <div class="font-semibold">{{ highlight.description }}</div>
         <div>
           <NuxtLink
             :to="{
@@ -45,9 +47,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.title {
-  @apply font-bold text-lg text-center;
-}
-</style>

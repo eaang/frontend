@@ -1,7 +1,9 @@
 <template>
-  <div></div>
+  <div>Work in progress!</div>
 </template>
 
 <script>
-export default {}
+export default {
+  middleware: 'auth',
+}
 </script>

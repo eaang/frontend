@@ -1,9 +1,9 @@
 <template>
   <div class="container mx-auto px-6">
     <div class="mt-6">
-      <div class="text-center font-bold text-lg">My Account</div>
-      <div>
-        <div>
+      <div class="text-center font-bold text-lg mb-6">My Account</div>
+      <div class="space-y-6">
+        <div class="flex justify-around">
           <img
             class="h-64 w-64 object-cover"
             :src="loggedInUser.profile.image.url"
@@ -32,8 +32,12 @@
             {{ loggedInUser.email }}
           </div>
         </div>
+        <div>
+          <nuxt-link to="/users/profile/edit"
+            ><Button text="Edit Info" class="primary small"
+          /></nuxt-link>
+        </div>
       </div>
-      <div>{{ loggedInUser }}</div>
     </div>
   </div>
 </template>
