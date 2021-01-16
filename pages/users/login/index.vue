@@ -13,7 +13,7 @@
     >
       <div class="space-y-6 mb-12">
         <div class="field">
-          <label class="label">Email {{ isAuthenticated }}</label>
+          <label class="label">Email</label>
           <input
             v-model="email"
             type="email"

@@ -16,7 +16,7 @@
         <div>How It Works</div>
         <div>About Us</div>
         <div v-if="!isAuthenticated">
-          <nuxt-link to="/users/login">{{ loggedInUser }}</nuxt-link>
+          <nuxt-link to="/users/login">Log In</nuxt-link>
         </div>
         <div v-if="!isAuthenticated">
           <nuxt-link to="/users/register">Sign Up</nuxt-link>

@@ -3,7 +3,7 @@
     <Categories />
     <div class="container mx-auto px-6 h-screen space-y-6 py-6">
       <!-- Highlight box -->
-      <div class="w-full">
+      <div class="w-full" v-if="highlight != null">
         <div class="title w-full">A simple but memorable gift?</div>
         <div class="flex items-center justify-between h-48 space-x-4">
           <div class="space-y-6">
