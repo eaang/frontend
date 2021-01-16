@@ -3,7 +3,7 @@
     <Categories />
     <div class="container mx-auto px-6 h-screen space-y-6 py-6">
       <!-- Highlight box -->
-      <div class="w-full" v-if="highlight != null">
+      <div class="w-full" v-if="highlight">
         <div class="title w-full">A simple but memorable gift?</div>
         <div class="flex items-center justify-between h-48 space-x-4">
           <div class="space-y-6">
@@ -27,6 +27,11 @@
             />
           </div>
         </div>
+      </div>
+      <div v-else>loading...</div>
+      <!-- Anything else -->
+      <div>
+        {{ user }}
       </div>
     </div>
   </div>
@@ -54,6 +59,9 @@ export default {
       } else {
         return this.$config.apiUrl
       }
+    },
+    user() {
+      return this.$store.state.auth.user
     },
   },
 }

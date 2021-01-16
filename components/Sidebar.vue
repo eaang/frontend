@@ -15,13 +15,13 @@
       <div class="text-white text-sm space-y-2 self-end">
         <div>How It Works</div>
         <div>About Us</div>
-        <div v-if="!isAuthenticated">
+        <div>
           <nuxt-link to="/users/login">Log In</nuxt-link>
         </div>
-        <div v-if="!isAuthenticated">
+        <div>
           <nuxt-link to="/users/register">Sign Up</nuxt-link>
         </div>
-        <div v-if="isAuthenticated">Log Out</div>
+        <div>Log Out</div>
       </div>
     </div>
   </div>

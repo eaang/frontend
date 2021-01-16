@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto mt-12 px-6">
+    <div>{{ loggedInUser }}</div>
     <div class="font-bold text-center text-xl w-full">Welcome back!</div>
     <div class="my-12">
       <Notification v-if="error" type="danger" :message="error" />
@@ -69,13 +70,13 @@ export default {
     async login() {
       this.error = null
       try {
-        await this.$auth.loginWith('local', {
+        let response = await this.$auth.loginWith('local', {
           data: {
             identifier: this.email,
             password: this.password,
           },
         })
-        this.$router.push('/')
+        console.log(response)
       } catch (e) {
         this.error = e.response.data.message[0].messages[0].message
       }

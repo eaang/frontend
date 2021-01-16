@@ -50,16 +50,20 @@ export default {
   auth: {
     strategies: {
       local: {
+        token: {
+          property: 'jwt',
+        },
+        user: {
+          property: false,
+        },
         endpoints: {
           login: {
             url: 'auth/local',
             method: 'post',
-            propertyName: 'jwt',
           },
           user: {
             url: 'users/me',
             method: 'get',
-            propertyName: false,
           },
           logout: false,
         },
