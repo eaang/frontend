@@ -4,17 +4,19 @@
       name: 'gifts-slug',
       params: { slug: gift.id },
     }"
-    ><div class="flex flex-col h-full">
-      <div class="flex-grow">
-        <img class="h-full object-cover" :src="imageUrl" alt="" />
+    ><div class="flex flex-col space-y-2">
+      <div class="flex justify-center">
+        <img class="h-40 w-40 object-cover" :src="gift.image.url" alt="" />
       </div>
-      <div class="font-bold text-base">
-        {{ gift.name }}
+      <div>
+        <div class="flex-grow font-bold text-base">
+          {{ gift.name }}
+        </div>
+        <div class="font-semibold text-sm">
+          {{ gift.brand.name }}
+        </div>
+        <div class="font-bold text-base">{{ displayPrice }}</div>
       </div>
-      <div class="font-semibold text-sm">
-        {{ gift.brand.name }}
-      </div>
-      <div class="font-bold text-base">{{ displayPrice }}</div>
     </div></NuxtLink
   >
 </template>
@@ -40,13 +42,6 @@ export default {
           style: 'decimal',
         })
       )
-    },
-    imageUrl() {
-      if (process.env.NODE_ENV !== 'development') {
-        return this.gift.image.url
-      } else {
-        return this.$config.apiUrl + this.gift.image.url
-      }
     },
   },
 }

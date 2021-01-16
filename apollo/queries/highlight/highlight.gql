@@ -1,0 +1,11 @@
+query Highlight {
+  highlight {
+    description
+    gift {
+      id
+      image {
+        url
+      }
+    }
+  }
+}
