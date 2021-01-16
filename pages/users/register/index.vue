@@ -1,6 +1,5 @@
 <template>
   <div class="container mx-auto mt-12 px-6">
-<<<<<<< HEAD
     <div class="font-bold text-center text-xl w-full">Welcome!</div>
     <div class="my-12">
       <Notification v-if="success" type="success" :message="success" />
@@ -8,11 +7,6 @@
     </div>
     <!-- Signup Form -->
     <form class="my-6" v-if="!success" method="post" @submit.prevent="register">
-=======
-    <div class="font-bold text-center text-xl w-full">Welcome</div>
-    <!-- Signup Form -->
-    <form class="py-6" v-if="!success" method="post" @submit.prevent="register">
->>>>>>> b614e1615d8690f24f71c5a6fd04af05b74ca6e4
       <div class="space-y-6 mb-12">
         <div class="field">
           <label class="label">Username</label>
@@ -47,7 +41,6 @@
       </div>
 
       <button type="submit" class="w-full">
-<<<<<<< HEAD
         <Button text="Sign Up" classes="primary rounded-full" />
       </button>
     </form>
@@ -55,11 +48,6 @@
       Already have an account?
       <nuxt-link to="/users/login" class="text-purple-800">Log In</nuxt-link>
     </div>
-=======
-        <Button text="Register" classes="primary rounded-full" />
-      </button>
-    </form>
->>>>>>> b614e1615d8690f24f71c5a6fd04af05b74ca6e4
   </div>
 </template>
 
@@ -76,7 +64,6 @@ export default {
       error: null,
     }
   },
-<<<<<<< HEAD
   methods: {
     async register() {
       this.error = null
@@ -94,8 +81,6 @@ export default {
       }
     },
   },
-=======
->>>>>>> b614e1615d8690f24f71c5a6fd04af05b74ca6e4
 }
 </script>
 
