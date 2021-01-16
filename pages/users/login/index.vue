@@ -52,11 +52,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
-  computed: {
-    ...mapGetters(['isAuthenticated', 'loggedInUser']),
-  },
+  middleware: 'auth',
+  auth: 'guest',
   layout: 'users',
   data() {
     return {
@@ -76,7 +74,6 @@ export default {
             password: this.password,
           },
         })
-        console.log(response)
       } catch (e) {
         this.error = e.response.data.message[0].messages[0].message
       }

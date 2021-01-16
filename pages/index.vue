@@ -29,10 +29,6 @@
         </div>
       </div>
       <div v-else>loading...</div>
-      <!-- Anything else -->
-      <div>
-        {{ user }}
-      </div>
     </div>
   </div>
 </template>
@@ -59,9 +55,6 @@ export default {
       } else {
         return this.$config.apiUrl
       }
-    },
-    user() {
-      return this.$store.state.auth.user
     },
   },
 }
