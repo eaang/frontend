@@ -3,9 +3,37 @@
     <div class="mt-6">
       <div class="text-center font-bold text-lg">My Account</div>
       <div>
-        <div>Username: {{ loggedInUser.username }}</div>
-        <div>Email: {{ loggedInUser.email }}</div>
+        <div>
+          <img
+            class="h-64 w-64 object-cover"
+            :src="loggedInUser.profile.image.url"
+            alt=""
+          />
+        </div>
+        <div class="flex space-x-2">
+          <div>
+            Name:
+            {{
+              loggedInUser.profile.firstname +
+              ' ' +
+              loggedInUser.profile.lastname
+            }}
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <div>Username:</div>
+          <div>
+            {{ loggedInUser.username }}
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <div>Email:</div>
+          <div>
+            {{ loggedInUser.email }}
+          </div>
+        </div>
       </div>
+      <div>{{ loggedInUser }}</div>
     </div>
   </div>
 </template>
@@ -15,6 +43,11 @@ import { mapGetters } from 'vuex'
 
 export default {
   middleware: 'auth',
+  data() {
+    return {
+      profile: {},
+    }
+  },
   computed: {
     ...mapGetters(['loggedInUser']),
   },

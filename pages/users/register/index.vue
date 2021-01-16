@@ -69,11 +69,12 @@ export default {
       this.error = null
       try {
         this.$axios.setToken(false)
-        await this.$axios.post('auth/local/register', {
+        let response = await this.$axios.post('auth/local/register', {
           username: this.username,
           email: this.email,
           password: this.password,
         })
+        console.log(response)
         this.success = `A confirmation link has been sent to your email account. \
  Please click on the link to complete the registration process.`
       } catch (e) {

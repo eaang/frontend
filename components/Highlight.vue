@@ -18,7 +18,7 @@
       <div class="w-2/5">
         <img
           class="w-full object-cover"
-          :src="imagePrefix + highlight.gift.image.url"
+          :src="highlight.gift.image.url"
           alt=""
         />
       </div>
@@ -41,15 +41,6 @@ export default {
     highlight: {
       prefetch: true,
       query: highlightQuery,
-    },
-  },
-  computed: {
-    imagePrefix() {
-      if (process.env.NODE_ENV !== 'development') {
-        return ''
-      } else {
-        return this.$config.apiUrl
-      }
     },
   },
 }
