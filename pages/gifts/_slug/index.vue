@@ -34,7 +34,9 @@
           <div class="flex-1 text-lg font-bold">Total</div>
           <div class="text-2xl font-bold text-purple-800">{{ totalPrice }}</div>
         </div>
-        <div><Button text="Buy Gift" classes="primary rounded-full" /></div>
+        <div>
+          <Button text="Customise your gift" classes="primary rounded-full" />
+        </div>
       </div>
       <div class="container mx-auto px-4 py-12 space-y-12">
         <!-- Gift Description -->
