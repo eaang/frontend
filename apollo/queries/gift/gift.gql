@@ -4,7 +4,7 @@ query Gift($id: ID!) {
     name
     description
     price
-    category {
+    categories {
       name
     }
     brand {
