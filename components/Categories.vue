@@ -1,10 +1,12 @@
 <template>
   <div class="w-full h-12 bg-gray-200 border-b border-gray-500">
-    <div class="container mx-auto px-4 flex space-x-4 h-full items-center">
+    <div
+      class="container mx-auto px-4 flex space-x-4 h-full items-center overflow-x-auto"
+    >
       <div>
         <NuxtLink to="/categories">ALL GIFTS</NuxtLink>
       </div>
-      <div v-for="category in categories" :key="category.id">
+      <div v-for="category in headerCategory.categories" :key="category.id">
         <NuxtLink
           :to="{
             name: 'categories-slug',
@@ -19,18 +21,18 @@
 </template>
 
 <script>
-import categoriesQuery from '~/apollo/queries/category/categories'
+import headerCategories from '~/apollo/queries/header-categories/header-categories'
 
 export default {
   data() {
     return {
-      categories: [],
+      headerCategory: [],
     }
   },
   apollo: {
-    categories: {
+    headerCategory: {
       prefetch: true,
-      query: categoriesQuery,
+      query: headerCategories,
     },
   },
 }
@@ -38,7 +40,7 @@ export default {
 
 <style scoped>
 a {
-  @apply uppercase text-gray-400;
+  @apply uppercase text-gray-400 whitespace-nowrap;
 }
 .nuxt-link-exact-active {
   @apply font-semibold text-purple-800 border-b-4 border-purple-800;

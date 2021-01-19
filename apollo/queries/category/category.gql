@@ -4,7 +4,7 @@ query Category($id: ID!) {
       id
       name
       price
-      category {
+      categories {
         name
       }
       brand {

@@ -1,0 +1,8 @@
+query HeaderCategories {
+  headerCategory {
+    categories {
+      id
+      name
+    }
+  }
+}
