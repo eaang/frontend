@@ -1,8 +1,11 @@
 <template>
   <div class="w-full h-12 bg-gray-200 border-b border-gray-500">
     <div
-      class="container mx-auto px-4 flex space-x-4 h-full items-center overflow-x-auto"
+      class="container mx-auto px-4 flex space-x-4 h-full items-center no-scrollbar"
     >
+      <div>
+        <NuxtLink to="/">HOT DEALS</NuxtLink>
+      </div>
       <div>
         <NuxtLink to="/categories">ALL GIFTS</NuxtLink>
       </div>

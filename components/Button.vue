@@ -23,6 +23,9 @@ export default {
 .btn {
   @apply text-center  py-4 rounded-lg font-bold;
 }
+.btn-pill {
+  @apply rounded-full;
+}
 .primary {
   @apply text-white bg-purple-800;
 }
