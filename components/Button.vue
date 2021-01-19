@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .btn {
-  @apply text-center  py-4 rounded-lg font-bold;
+  @apply text-center  py-4 rounded font-bold;
 }
 .btn-pill {
   @apply rounded-full;

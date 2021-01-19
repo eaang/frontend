@@ -42,8 +42,12 @@
           <div class="flex-1 text-lg font-bold">Total</div>
           <div class="text-2xl font-bold text-purple-800">{{ totalPrice }}</div>
         </div>
-        <div>
-          <Button text="Customise your gift!" classes="btn-pill primary" />
+        <div @click="setQuantity(quantity)">
+          <nuxt-link
+            :to="{ name: 'gifts-slug-customise', params: { slug: gift.id } }"
+          >
+            <Button text="Customise your gift!" classes="btn-pill primary"
+          /></nuxt-link>
         </div>
       </div>
       <div class="container mx-auto px-4 py-12 space-y-12">
@@ -121,6 +125,7 @@
 
 <script>
 import giftQuery from '~/apollo/queries/gift/gift'
+import { mapMutations } from 'vuex'
 
 const currencyOptions = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -161,6 +166,14 @@ export default {
           style: 'decimal',
         })
       )
+    },
+    storeQuantity() {
+      return this.$store.state.quantity
+    },
+  },
+  methods: {
+    setQuantity(x) {
+      this.$store.commit('setQuantity', x)
     },
   },
 }
