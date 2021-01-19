@@ -1,7 +1,7 @@
 <template>
   <div class="h-16 bg-purple-800 w-full">
     <div
-      class="container mx-auto px-4 flex items-center h-full text-white relative"
+      class="container mx-auto px-4 flex items-center text-white h-full relative"
     >
       <div class="absolute inset-y-0 left-0 flex items-center pl-4">
         <div class="h-8 w-8" @click="$nuxt.$emit('openSidebar')">
