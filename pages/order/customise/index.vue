@@ -8,7 +8,11 @@
 
     <div class="py-6 space-y-6" :style="bgImage">
       <div class="mx-6 flex justify-around">
-        <img :src="gift.image.url" alt="" class="h-56 w-56 object-cover" />
+        <img
+          :src="order.gift.image.url"
+          alt=""
+          class="h-56 w-56 object-cover"
+        />
       </div>
       <div class="h-40 mx-6">
         <textarea
@@ -43,51 +47,51 @@
             classes="primary btn-pill"
           />
         </div>
-        <div class="text-center">
-          <nuxt-link to="/checkout" class="underline text-purple-800"
+        <div class="text-center" @click="continueOrder">
+          <nuxt-link to="/order/checkout" class="underline text-purple-800"
             >checkout as a guest</nuxt-link
           >
         </div>
-        {{ this.$store.state.order }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-import giftQuery from '~/apollo/queries/gift/gift'
 import bgQuery from '~/apollo/queries/background/backgrounds'
 
 export default {
   data() {
     return {
-      gift: Object,
       backgrounds: Object,
       selectedBg: null,
       message: '',
     }
   },
   apollo: {
-    gift: {
-      prefetch: true,
-      query: giftQuery,
-      variables() {
-        return { id: this.$route.params.slug }
-      },
-    },
     backgrounds: {
       prefetch: true,
       query: bgQuery,
     },
   },
   computed: {
+    order() {
+      return this.$store.state.order.order
+    },
     bgImage() {
       if (this.selectedBg !== null) {
         return `background-image: url(${this.selectedBg}); background-repeat: no-repeat; background-size: cover`
       } else {
         return null
       }
+    },
+  },
+  methods: {
+    continueOrder() {
+      this.$store.commit('order/setBgMessage', {
+        bg: this.selectedBg,
+        message: this.message,
+      })
     },
   },
 }
