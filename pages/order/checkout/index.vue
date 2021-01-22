@@ -2,12 +2,12 @@
   <div>
     <div class="w-full h-12">
       <div class="flex h-full items-center pl-6 font-semibold text-xl">
-        Payment
+        Your Order
       </div>
     </div>
 
     <div class="space-y-6">
-      <!-- Gift Details -->
+      <!-- Item Details -->
       <div class="space-y-2">
         <div class="flex px-6 space-x-3 items-center">
           <div class="w-28">
@@ -43,7 +43,7 @@
         </div>
       </div>
 
-      <!-- Payment Elements -->
+      <!-- Order Details -->
       <div class="px-6 space-y-6">
         <div>
           <div
@@ -79,6 +79,20 @@
           </div>
         </div>
       </div>
+
+      <!-- Payment Elements -->
+      <div class="px-6 space-y-6">
+        <div class="font-semibold text-lg">Payment</div>
+        <div class="">
+          <form @submit.stop.prevent="handleSubmit">
+            <card
+              ref="card-stripe"
+              stripe="process.env.STRIPE_API"
+              @change="complete = $event.complete"
+            />
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -93,7 +107,9 @@ const currencyOptions = new Intl.NumberFormat('en-US', {
 
 export default {
   data() {
-    return {}
+    return {
+      complete: false,
+    }
   },
   components: {
     Card,
@@ -119,6 +135,7 @@ export default {
         })
       )
     },
+    pay() {},
   },
 }
 </script>
