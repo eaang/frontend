@@ -6,20 +6,50 @@
       </div>
     </div>
 
-    <div class="my-6 space-y-6">
-      <div class="text-center text-2xl font-bold">
-        {{ gift.name }} x {{ storeQuantity }}
-      </div>
+    <div class="py-6 space-y-6" :style="bgImage">
       <div class="mx-6 flex justify-around">
         <img :src="gift.image.url" alt="" class="h-56 w-56 object-cover" />
       </div>
-      <div class="h-48 mx-6 border border-gray-500">
+      <div class="h-40 mx-6">
         <textarea
-          class="w-full h-full px-4 py-2"
+          class="w-full h-full px-4 py-2 border border-black rounded"
+          v-model="message"
           placeholder="Write a message to the person who'll be receiving this gift!"
         />
+        {{ message }}
       </div>
-      <div></div>
+    </div>
+
+    <div class="px-6 py-6 space-y-6">
+      <div class="border border-black rounded p-2 flex space-x-6 no-scrollbar">
+        <div class="h-16 w-16 bg-gray-300" @click="selectedBg = null">
+          <div class="text-xs flex h-full text-center items-center p-1">
+            No Wrapping
+          </div>
+        </div>
+        <div v-for="background in backgrounds" :key="background.id">
+          <div class="h-16 w-16" @click="selectedBg = background.image.url">
+            <img
+              :src="background.image.url"
+              alt=""
+              class="h-16 w-16 object-cover"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div>
+          <Button
+            text="Create account to purchase"
+            classes="primary btn-pill"
+          />
+        </div>
+        <div class="text-center">
+          <nuxt-link to="/" class="underline text-purple-800"
+            >checkout as a guest</nuxt-link
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -33,8 +63,8 @@ export default {
     return {
       gift: Object,
       backgrounds: Object,
-      quantity: 1,
-      selectedBg: 1,
+      selectedBg: null,
+      message: '',
     }
   },
   apollo: {
@@ -51,8 +81,23 @@ export default {
     },
   },
   computed: {
-    storeQuantity() {
-      return this.$store.state.quantity
+    bgImage() {
+      if (this.selectedBg !== null) {
+        return `background-image: url(${this.selectedBg}); background-repeat: no-repeat; background-size: cover`
+      } else {
+        return null
+      }
+    },
+    order() {
+      const qty = this.$store.state.quantity
+
+      return {
+        gift: this.gift,
+        quantity: qty,
+        price: qty * this.gift.price,
+        bg: this.selectedBg,
+        message: this.message,
+      }
     },
   },
 }
