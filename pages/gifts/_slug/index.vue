@@ -42,7 +42,7 @@
           <div class="flex-1 text-lg font-bold">Total</div>
           <div class="text-2xl font-bold text-purple-800">{{ totalPrice }}</div>
         </div>
-        <div @click="setQuantity(quantity)">
+        <div @click="startOrder()">
           <nuxt-link
             :to="{ name: 'gifts-slug-customise', params: { slug: gift.id } }"
           >
@@ -167,13 +167,11 @@ export default {
         })
       )
     },
-    storeQuantity() {
-      return this.$store.state.quantity
-    },
   },
   methods: {
-    setQuantity(x) {
-      this.$store.commit('setQuantity', x)
+    startOrder() {
+      this.$store.commit('order/setGift', this.gift)
+      this.$store.commit('order/setQuantity', this.quantity)
     },
   },
 }

@@ -16,7 +16,6 @@
           v-model="message"
           placeholder="Write a message to the person who'll be receiving this gift!"
         />
-        {{ message }}
       </div>
     </div>
 
@@ -45,16 +44,18 @@
           />
         </div>
         <div class="text-center">
-          <nuxt-link to="/" class="underline text-purple-800"
+          <nuxt-link to="/checkout" class="underline text-purple-800"
             >checkout as a guest</nuxt-link
           >
         </div>
+        {{ this.$store.state.order }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import giftQuery from '~/apollo/queries/gift/gift'
 import bgQuery from '~/apollo/queries/background/backgrounds'
 
@@ -86,17 +87,6 @@ export default {
         return `background-image: url(${this.selectedBg}); background-repeat: no-repeat; background-size: cover`
       } else {
         return null
-      }
-    },
-    order() {
-      const qty = this.$store.state.quantity
-
-      return {
-        gift: this.gift,
-        quantity: qty,
-        price: qty * this.gift.price,
-        bg: this.selectedBg,
-        message: this.message,
       }
     },
   },

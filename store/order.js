@@ -1,27 +1,27 @@
 export const state = () => ({
-  order: {},
+  gift: {},
+  quantity: null,
+  bg: null,
+  message: '',
 })
 
 export const mutations = {
-  setOrder(state, order) {
-    state.order = order
+  setGift(state, gift) {
+    state.gift = gift
+  },
+  setQuantity(state, quantity) {
+    state.quantity = quantity
+  },
+  setBg(state, bg) {
+    state.bg = bg
+  },
+  setMessage(state, message) {
+    state.order = message
   },
 }
 
 export const getters = {
-  order: (state) => {
-    return state.order
-  },
-  quantity: (state) => {
-    return state.order.quantity
-  },
   price: (state) => {
-    return state.order.gift.price * state.order.quantity
-  },
-  bg: (state) => {
-    return state.order.bg
-  },
-  message: (state) => {
-    return state.order.message
+    return state.order.price
   },
 }

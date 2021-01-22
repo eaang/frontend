@@ -7,13 +7,3 @@ export const getters = {
     return state.auth.user
   },
 }
-
-export const state = () => ({
-  quantity: 1,
-})
-
-export const mutations = {
-  setQuantity(state, n) {
-    state.quantity = n
-  },
-}
