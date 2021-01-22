@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="w-full h-12 bg-gray-200 border-b border-gray-500">
+    <div class="w-full h-12">
       <div class="flex h-full items-center pl-6 font-semibold text-xl">
         Customise Your Gift
       </div>
@@ -31,7 +31,7 @@
           </div>
         </div>
         <div v-for="background in backgrounds" :key="background.id">
-          <div class="h-16 w-16" @click="selectedBg = background.image.url">
+          <div class="h-16 w-16" @click="selectedBg = background">
             <img
               :src="background.image.url"
               alt=""
@@ -80,7 +80,7 @@ export default {
     },
     bgImage() {
       if (this.selectedBg !== null) {
-        return `background-image: url(${this.selectedBg}); background-repeat: no-repeat; background-size: cover`
+        return `background-image: url(${this.selectedBg.image.url}); background-repeat: no-repeat; background-size: cover`
       } else {
         return null
       }
