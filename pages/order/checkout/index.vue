@@ -6,7 +6,7 @@
       </div>
     </div>
 
-    <div class="space-y-6">
+    <div class="space-y-6 my-6">
       <!-- Item Details -->
       <div class="space-y-2">
         <div class="flex px-6 space-x-3 items-center">
@@ -83,15 +83,36 @@
       <!-- Payment Elements -->
       <div class="px-6 space-y-6">
         <div class="font-semibold text-lg">Payment</div>
-        <div class="">
-          <form @submit.stop.prevent="handleSubmit">
-            <card
-              ref="card-stripe"
-              stripe="process.env.STRIPE_API"
-              @change="complete = $event.complete"
-            />
-          </form>
-        </div>
+        <form @submit.stop.prevent="handleSubmit">
+          <div class="space-y-3">
+            <div class="text-xs">
+              <label for="card">Credit or debit card</label>
+            </div>
+            <div>
+              <card
+                class="font-sans"
+                :class="{ complete }"
+                ref="card-stripe"
+                stripe="process.env.STRIPE_API"
+                :options="stripeOptions"
+                @change="complete = $event.complete"
+              />
+            </div>
+            <div @click="pay" :disabled="!complete">
+              <Button
+                text="Confirm purchase"
+                type="submit"
+                classes="primary btn-pill"
+                :class="{ disabled: !complete }"
+              />
+            </div>
+            <div class="text-center" @click="goBack">
+              <nuxt-link to="/order/checkout" class="underline text-purple-800"
+                >return to previous page</nuxt-link
+              >
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -109,6 +130,17 @@ export default {
   data() {
     return {
       complete: false,
+      loading: false,
+      stripeOptions: {
+        style: {
+          base: {
+            fontWeight: 400,
+            fontFamily:
+              'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+            fontSize: '1rem',
+          },
+        },
+      },
     }
   },
   components: {
@@ -135,7 +167,37 @@ export default {
         })
       )
     },
-    pay() {},
+    goBack() {
+      this.$router.go(-1)
+    },
+    async handleSubmit() {
+      this.loading = true
+      let token
+      try {
+        const response = await createToken()
+        token = response.token.id
+      } catch (err) {
+        alert('An error occurred.')
+        this.loading = false
+        return
+      }
+      try {
+        await strapi.createEntry('orders', {
+          gift: this.order.gift,
+          quantity: this.order.quantity,
+          amount: this.totalAmount,
+          message: this.order.message,
+          background: this.order.background,
+          token,
+        })
+        alert('Your order has been successfully submitted!')
+        this.emptyCard()
+        this.$router.push('/')
+      } catch (err) {
+        this.loading = false
+        alert('An error occurred.')
+      }
+    },
   },
 }
 </script>

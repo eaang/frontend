@@ -38,4 +38,7 @@ export default {
 .small {
   @apply text-sm py-2;
 }
+.disabled {
+  @apply bg-gray-300;
+}
 </style>
