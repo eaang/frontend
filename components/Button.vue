@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .btn {
-  @apply text-center  py-4 rounded font-bold;
+  @apply text-center  py-4 rounded font-bold cursor-pointer;
 }
 .btn-pill {
   @apply rounded-full;
@@ -39,6 +39,6 @@ export default {
   @apply text-sm py-2;
 }
 .disabled {
-  @apply bg-gray-300;
+  @apply bg-gray-300 cursor-default;
 }
 </style>

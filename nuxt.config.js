@@ -1,9 +1,11 @@
 const apiUrl = process.env.API_URL || 'http://localhost:1337'
 const siteUrl = process.env.API_URL || 'http://localhost:3000'
+const stripeKey = process.env.STRIPE_KEY
 
 export default {
   publicRuntimeConfig: {
     apiUrl: apiUrl,
+    stripeKey: stripeKey,
   },
   privateRuntimeConfig: {},
   // Target (https://go.nuxtjs.dev/config-target)
@@ -43,8 +45,14 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
     '@nuxtjs/auth-next',
+    '@nuxtjs/strapi',
     'cookie-universal-nuxt',
   ],
+
+  // Strapi configuration (https://strapi.nuxtjs.org/options)
+  strapi: {
+    url: apiUrl,
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
