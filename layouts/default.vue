@@ -28,3 +28,11 @@ export default {
   },
 }
 </script>
+
+<style>
+.no-scrollbar {
+  overflow: auto;
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
+}
+</style>

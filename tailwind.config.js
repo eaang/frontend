@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: [
     './components/**/*.{vue,js}',
@@ -9,6 +11,22 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      borderRadius: {
+        none: '0',
+        sm: '0.125rem',
+        DEFAULT: '0.25rem',
+        md: '0.375rem',
+        lg: '0.5rem',
+        xl: '2rem',
+        full: '9999px',
+      },
+      colors: {
+        purple: {
+          ...colors.violet,
+          500: '#813C99',
+          800: '#5F0080',
+        },
+      },
       height: (theme) => ({
         forty: '40%',
         half: '50%',

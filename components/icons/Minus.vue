@@ -1,13 +1,15 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
-    fill="currentColor"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
   >
     <path
-      fill-rule="evenodd"
-      d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-      clip-rule="evenodd"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
     />
   </svg>
 </template>

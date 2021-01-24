@@ -15,17 +15,25 @@
         <div class="flex">
           <div class="flex-1 text-lg font-bold">Quantity</div>
           <div class="flex space-x-4 items-center">
-            <div v-if="quantity > 1" class="h-4 w-4" @click="quantity--">
+            <div
+              v-if="quantity > 1"
+              class="mathbtn mathbtn-active"
+              @click="quantity--"
+            >
               <Minus />
             </div>
-            <div v-else class="h-4 w-4 text-gray-400">
+            <div v-else class="mathbtn mathbtn-disabled">
               <Minus />
             </div>
-            <div>{{ quantity }}</div>
-            <div v-if="quantity < 8" class="h-4 w-4" @click="quantity++">
+            <div class="text-lg">{{ quantity }}</div>
+            <div
+              v-if="quantity < 8"
+              class="mathbtn mathbtn-active"
+              @click="quantity++"
+            >
               <Plus />
             </div>
-            <div v-else class="h-4 w-4 text-gray-400">
+            <div v-else class="mathbtn mathbtn-disabled">
               <Plus />
             </div>
           </div>
@@ -34,7 +42,11 @@
           <div class="flex-1 text-lg font-bold">Total</div>
           <div class="text-2xl font-bold text-purple-800">{{ totalPrice }}</div>
         </div>
-        <div><Button text="Buy Gift" classes="primary rounded-full" /></div>
+        <div @click="startOrder">
+          <nuxt-link to="/order/customise">
+            <Button text="Customise your gift!" classes="btn-pill primary"
+          /></nuxt-link>
+        </div>
       </div>
       <div class="container mx-auto px-4 py-12 space-y-12">
         <!-- Gift Description -->
@@ -153,6 +165,15 @@ export default {
       )
     },
   },
+  methods: {
+    startOrder() {
+      this.$store.commit('order/setGiftQuantity', {
+        gift: this.gift,
+        quantity: this.quantity,
+        price: +(this.quantity * this.gift.price).toFixed(2),
+      })
+    },
+  },
 }
 </script>
 
@@ -168,5 +189,14 @@ export default {
 }
 .icon {
   @apply h-12 w-12 text-gray-700;
+}
+.mathbtn {
+  @apply h-5 w-5;
+}
+.mathbtn-active {
+  @apply text-gray-700;
+}
+.mathbtn-disabled {
+  @apply text-gray-400;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen/75 w-screen/75 flex flex-col">
-    <div class="h-1/3 bg-purple-500 rounded-tr-lg pt-12 px-6">
+    <div class="h-1/3 bg-purple-500 rounded-tr-xl pt-12 px-6">
       <div class="flex w-full justify-between items-top">
         <div>
           <div v-if="!isAuthenticated" class="text-white text-lg font-bold">
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="flex-grow bg-purple-800 rounded-br-lg py-12 px-6 flex flex-col">
+    <div class="flex-grow bg-purple-800 rounded-br-xl py-12 px-6 flex flex-col">
       <div v-if="isAuthenticated" class="text-white space-y-4">
         <div @click="$nuxt.$emit('closeSidebar')">
           <nuxt-link to="/users/profile">Account</nuxt-link>
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   computed: {
