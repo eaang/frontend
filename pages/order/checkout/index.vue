@@ -94,7 +94,7 @@
               @change="complete = $event.complete"
             />
           </div>
-          <div @click="handleSubmit">
+          <div @click="pay">
             <Button
               text="Confirm purchase"
               classes="primary btn-pill"
@@ -164,16 +164,14 @@ export default {
     goBack() {
       this.$router.go(-1)
     },
-    async handleSubmit() {
+    async pay() {
       if (this.complete) {
-        this.loading = true
         let token
         try {
           const response = await createToken()
           token = response.token.id
         } catch (err) {
-          console.log(err)
-          alert('The first error occurred.')
+          alert('Some frontend issue.')
           this.loading = false
           return
         }
@@ -183,15 +181,13 @@ export default {
             quantity: this.order.quantity,
             price: +this.totalAmount.toFixed(2),
             message: this.order.message,
-            background: this.order.bg.id,
+            background: this.order.bg,
             token,
           })
-          alert('Your order has been successfully submitted!')
+          alert('Your order has been successfully submitted.')
           this.$router.push('/')
         } catch (err) {
-          console.log(err)
-          this.loading = false
-          alert('The second error occurred.')
+          alert('Some backend issue.')
         }
       }
     },
