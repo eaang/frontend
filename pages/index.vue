@@ -93,6 +93,50 @@
         <div class="p-3"></div>
       </div>
     </div>
+    <!-- Instructions -->
+    <div class="my-6 p-6 bg-gray-200">
+      <div class="text-xl text-center font-bold mb-6">How to Use</div>
+      <div class="space-y-12">
+        <div class="grid grid-cols-4 text-purple-800 text-sm">
+          <div class="flex items-center justify-center h-20">
+            <div class="h-6 w-6"><Search /></div>
+          </div>
+          <div class="col-span-3 h-full flex flex-col justify-center">
+            <div class="font-bold">1. Search for the gift</div>
+            <div>Search for the gift that you want to send to others.</div>
+          </div>
+        </div>
+        <div class="grid grid-cols-4 text-purple-800 text-sm">
+          <div class="flex items-center justify-center h-20">
+            <div class="h-6 w-6"><Write /></div>
+          </div>
+          <div class="col-span-3 h-full flex flex-col justify-center">
+            <div class="font-bold">2. Personalize the gift</div>
+            <div>
+              Personalize your gift with your own message and wrapping paper.
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-4 text-purple-800 text-sm">
+          <div class="flex items-center justify-center h-20">
+            <div class="h-6 w-6"><Card /></div>
+          </div>
+          <div class="col-span-3 h-full flex flex-col justify-center">
+            <div class="font-bold">3. Pay for the gift</div>
+            <div>Pay for your gift.</div>
+          </div>
+        </div>
+        <div class="grid grid-cols-4 text-purple-800 text-sm">
+          <div class="flex items-center justify-center h-20">
+            <div class="h-6 w-6"><Mail /></div>
+          </div>
+          <div class="col-span-3 h-full flex flex-col justify-center">
+            <div class="font-bold">4. Send the gift</div>
+            <div>Select a messenger app and send.</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
