@@ -94,7 +94,7 @@
       </div>
     </div>
     <!-- Instructions -->
-    <div class="my-6 p-6 bg-gray-200">
+    <div class="mt-6 px-6 py-12 bg-gray-200">
       <div class="text-xl text-center font-bold mb-6">How to Use</div>
       <div class="space-y-12">
         <div class="grid grid-cols-4 text-purple-800 text-sm">

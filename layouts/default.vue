@@ -8,6 +8,7 @@
     ></div>
     <Header class="z-30" />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
