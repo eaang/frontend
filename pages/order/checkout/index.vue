@@ -184,8 +184,6 @@ export default {
             background: this.order.bg,
             token,
           })
-          console.log(newOrder)
-          alert('Your order has been successfully submitted.')
           this.$router.push('/order/' + newOrder.id)
         } catch (err) {
           alert('Some backend issue.')
