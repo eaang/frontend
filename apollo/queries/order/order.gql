@@ -1,0 +1,10 @@
+query Order($id: ID!) {
+  order(id: $id) {
+    id
+    gift {
+      name
+    }
+    quantity
+    price
+  }
+}

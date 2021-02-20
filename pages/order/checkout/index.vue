@@ -176,7 +176,7 @@ export default {
           return
         }
         try {
-          await this.$strapi.create('orders', {
+          const newOrder = await this.$strapi.create('orders', {
             gift: this.order.gift,
             quantity: this.order.quantity,
             price: +this.totalAmount.toFixed(2),
@@ -184,8 +184,9 @@ export default {
             background: this.order.bg,
             token,
           })
+          console.log(newOrder)
           alert('Your order has been successfully submitted.')
-          this.$router.push('/')
+          this.$router.push('/order/' + newOrder.id)
         } catch (err) {
           alert('Some backend issue.')
         }
