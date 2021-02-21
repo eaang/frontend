@@ -3,8 +3,19 @@ query Order($id: ID!) {
     id
     gift {
       name
+      brand {
+        name
+      }
+      image {
+        url
+      }
     }
+    background {
+      image {
+        url
+      }
+    }
+    message
     quantity
-    price
   }
 }
