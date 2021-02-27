@@ -121,6 +121,7 @@ const currencyOptions = new Intl.NumberFormat('en-US', {
 }).resolvedOptions()
 
 export default {
+  middleware: 'auth',
   data() {
     return {
       loading: false,
@@ -142,7 +143,7 @@ export default {
   },
   computed: {
     order() {
-      return this.$store.state.order.order
+      return this.$cookies.get('order')
     },
     processingFees() {
       return +(this.order.quantity * 0.034 + 0.5).toFixed(2)

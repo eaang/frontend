@@ -41,16 +41,8 @@
         </div>
       </div>
       <div class="space-y-3">
-        <div>
-          <Button
-            text="Create account to purchase"
-            classes="primary btn-pill"
-          />
-        </div>
-        <div class="text-center" @click="continueOrder">
-          <nuxt-link to="/order/checkout" class="underline text-purple-800"
-            >checkout as a guest</nuxt-link
-          >
+        <div @click="goToCheckout">
+          <Button text="Get this gift!" classes="primary btn-pill" />
         </div>
       </div>
     </div>
@@ -87,11 +79,14 @@ export default {
     },
   },
   methods: {
-    continueOrder() {
+    goToCheckout() {
       this.$store.commit('order/setBgMessage', {
         bg: this.selectedBg,
         message: this.message,
       })
+      const order = this.$store.state.order.order
+      this.$cookies.set('order', order)
+      this.$router.push('/order/checkout')
     },
   },
 }
