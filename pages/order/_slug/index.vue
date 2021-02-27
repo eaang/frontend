@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6 space-y-6">
+  <div class="p-6 space-y-6" v-if="order.gift">
     <div class="border-b border-gray-200 pb-6 flex flex-col items-center">
       <div class="h-20 w-20 text-purple-800"><Check /></div>
       <div class="font-bold">Great! Your payment has been accepted.</div>

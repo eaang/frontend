@@ -183,10 +183,12 @@ export default {
             price: +this.totalAmount.toFixed(2),
             message: this.order.message,
             background: this.order.bg,
+            user: this.$auth.user,
             token,
           })
           this.$router.push('/order/' + newOrder.id)
         } catch (err) {
+          console.log(err)
           alert('Some backend issue.')
         }
       }
