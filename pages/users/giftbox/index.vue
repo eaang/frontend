@@ -14,8 +14,17 @@
               />
             </div>
           </div>
-          <div class="col-span-2">
-            <div class="font-bold text-sm">{{ order.gift.name }}</div>
+          <div class="col-span-2 flex flex-col justify-between">
+            <div class="flex justify-between text-sm">
+              <div class="font-bold">{{ order.gift.name }}</div>
+              <div class="text-purple-800">
+                {{ price(order.gift.price) }}
+              </div>
+            </div>
+            <div class="flex space-x-3">
+              <Button text="Details" classes="primary small btn-pill" />
+              <Button text="Resend" classes="primary small btn-pill" />
+            </div>
           </div>
         </div>
       </div>
@@ -25,6 +34,11 @@
 
 <script>
 import userGifts from '~/apollo/queries/user/usergifts'
+
+const currencyOptions = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'SGD',
+}).resolvedOptions()
 
 export default {
   data() {
@@ -44,6 +58,17 @@ export default {
       variables() {
         return { id: this.$auth.user.id }
       },
+    },
+  },
+  methods: {
+    price(cost) {
+      return (
+        '$' +
+        cost.toLocaleString('en-US', {
+          ...currencyOptions,
+          style: 'decimal',
+        })
+      )
     },
   },
 }
