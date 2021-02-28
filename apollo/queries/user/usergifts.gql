@@ -1,0 +1,13 @@
+query userGifts($id: ID!) {
+  user(id: $id) {
+    orders(sort: "id:desc") {
+      gift {
+        name
+        price
+        image {
+          url
+        }
+      }
+    }
+  }
+}

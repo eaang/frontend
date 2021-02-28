@@ -31,7 +31,7 @@
         <div @click="$nuxt.$emit('closeSidebar')">
           <nuxt-link to="/users/profile">Account</nuxt-link>
         </div>
-        <div>My Giftbox</div>
+        <nuxt-link to="/users/giftbox">My Giftbox</nuxt-link>
       </div>
       <div class="text-gray-300 text-sm flex-grow flex">
         <div class="space-y-2 self-end">
