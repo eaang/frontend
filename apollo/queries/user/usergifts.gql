@@ -1,6 +1,8 @@
 query userGifts($id: ID!) {
   user(id: $id) {
     orders(sort: "id:desc") {
+      id
+      quantity
       gift {
         name
         price

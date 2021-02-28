@@ -7,40 +7,13 @@
     </div>
     <div class="space-y-6 my-6">
       <!-- Item Details -->
-      <div class="space-y-2">
-        <div class="flex px-6 space-x-3 items-center">
-          <div class="w-28">
-            <img
-              :src="order.gift.image.url"
-              alt=""
-              class="w-28 h-28 object-cover rounded-lg border border-gray-200"
-            />
-          </div>
-          <div>
-            <div class="text-gray-400 text-xs">
-              {{ order.gift.brand.name }}
-            </div>
-            <div class="text-sm">
-              {{ order.gift.name }}
-            </div>
-            <div class="flex text-sm">
-              <div class="text-purple-800">
-                {{ displayPrice(order.gift.price) }}
-              </div>
-              <div class="text-gray-600">&nbsp;x {{ order.quantity }}</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="px-6 flex justify-between font-semibold">
-          <div>
-            {{ order.gift.name }}
-          </div>
-          <div class="text-purple-800">
-            {{ displayPrice(totalAmount) }}
-          </div>
-        </div>
-      </div>
+      <Orderbox
+        :brand="order.gift.brand.name"
+        :url="order.gift.image.url"
+        :name="order.gift.name"
+        :price="order.gift.price"
+        :quantity="order.quantity"
+      />
 
       <!-- Order Details -->
       <div class="px-6 space-y-6">

@@ -38,6 +38,9 @@ export default {
 .small {
   @apply text-sm py-2;
 }
+.xsmall {
+  @apply text-sm py-1;
+}
 .disabled {
   @apply bg-gray-300 cursor-default;
 }
