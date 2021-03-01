@@ -1,5 +1,5 @@
 const apiUrl = process.env.API_URL || 'http://localhost:1337'
-const siteUrl = process.env.API_URL || 'http://localhost:3000'
+const siteUrl = process.env.SITE_URL || 'http://localhost:3000'
 const stripeKey = process.env.STRIPE_KEY
 
 export default {
