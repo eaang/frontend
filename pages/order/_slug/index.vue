@@ -23,7 +23,10 @@
         <div class="flex items-center justify-center">
           <Share class="h-6 w-6 text-purple-800" />
         </div>
-        <div class="col-span-3 h-full flex items-center font-bold">
+        <div
+          @click="shareLink"
+          class="col-span-3 h-full flex items-center font-bold"
+        >
           All apps
         </div>
       </div>
@@ -34,16 +37,18 @@
       </div>
     </div>
     <div>
-      <nuxt-link :to="`/redeem/` + $route.params.slug">
-        <div class="grid grid-cols-4 rounded-lg border border-purple-800 h-12">
-          <div class="flex items-center justify-center">
-            <Copy class="h-6 w-6 text-purple-800" />
-          </div>
-          <div class="col-span-3 h-full flex items-center font-bold">
-            Copy gift URL
-          </div>
-        </div></nuxt-link
+      <div
+        @click="copyLink"
+        class="grid grid-cols-4 rounded-lg border border-purple-800 h-12"
       >
+        <div class="flex items-center justify-center">
+          <Copy class="h-6 w-6 text-purple-800" />
+        </div>
+        <div class="col-span-3 h-full flex items-center font-bold">
+          Copy gift URL
+        </div>
+      </div>
+      <input id="copylink" type="hidden" :value="redemptionLink" />
     </div>
   </div>
 </template>
@@ -57,6 +62,11 @@ export default {
       order: Object,
     }
   },
+  computed: {
+    redemptionLink() {
+      return this.$config.siteUrl + `/redeem/` + this.$route.params.slug
+    },
+  },
   apollo: {
     order: {
       prefetch: true,
@@ -64,6 +74,30 @@ export default {
       variables() {
         return { id: this.$route.params.slug }
       },
+    },
+  },
+  methods: {
+    copyLink() {
+      const copyText = document.querySelector('#copylink')
+      copyText.type = 'text'
+      copyText.select()
+      document.execCommand('copy')
+      copyText.type = 'hidden'
+    },
+    shareLink() {
+      if (navigator.share) {
+        navigator
+          .share({
+            title: 'Redeem Gift',
+            url: this.redemptionLink,
+          })
+          .then(() => {
+            console.log('Thanks for sharing!')
+          })
+          .catch(console.error)
+      } else {
+        // fallback
+      }
     },
   },
 }

@@ -5,6 +5,7 @@ const stripeKey = process.env.STRIPE_KEY
 export default {
   publicRuntimeConfig: {
     apiUrl: apiUrl,
+    siteUrl: siteUrl,
     stripeKey: stripeKey,
   },
   privateRuntimeConfig: {},
