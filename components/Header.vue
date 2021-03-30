@@ -19,7 +19,7 @@
         <div
           class="hidden md:flex items-center space-x-6 text-black font-bold text-sm"
         >
-          <a href="#how_use"
+          <a :href="$config.siteUrl + `/#how_use`"
             ><div
               class="rounded-lg border-gray-400 border p-2 space-x-2 flex items-center"
             >
