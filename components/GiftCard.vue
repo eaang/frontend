@@ -4,18 +4,18 @@
       name: 'gifts-slug',
       params: { slug: gift.id },
     }"
-    ><div class="flex flex-col space-y-2">
+    ><div class="flex flex-col space-y-2 md:w-52">
       <div class="flex justify-center">
         <img class="h-40 w-40 object-cover" :src="gift.image.url" alt="" />
       </div>
       <div>
-        <div class="flex-grow font-bold text-base">
+        <div class="flex-grow font-bold text-base md:text-lg">
           {{ gift.name }}
         </div>
         <div class="font-semibold text-sm">
           {{ gift.brand.name }}
         </div>
-        <div class="font-bold text-base">{{ displayPrice }}</div>
+        <div class="font-bold text-base md:text-lg">{{ displayPrice }}</div>
       </div>
     </div></NuxtLink
   >

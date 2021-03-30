@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-purple-800 p-6 text-white space-y-6">
+  <div class="bg-purple-800 p-6 text-white space-y-6 md:px-36">
     <div class="text-2xl font-bold">GIFTICON</div>
     <div class="space-y-3 text-sm">
       <div>ABOUT US</div>

@@ -1,7 +1,9 @@
 <template>
-  <div class="w-full h-12 bg-gray-200 border-b border-gray-500">
+  <div
+    class="w-full h-12 border-b bg-gray-100 border-gray-500 md:h-16 md:border-t md:bg-white"
+  >
     <div
-      class="container mx-auto px-6 flex space-x-4 h-full items-center no-scrollbar"
+      class="container mx-auto px-6 md:px-36 flex space-x-4 h-full items-center md:justify-between no-scrollbar"
     >
       <div>
         <NuxtLink to="/">HOT DEALS</NuxtLink>
@@ -43,7 +45,7 @@ export default {
 
 <style scoped>
 a {
-  @apply uppercase text-gray-400 whitespace-nowrap;
+  @apply uppercase text-gray-400 whitespace-nowrap md:text-gray-500 md:font-semibold;
 }
 .nuxt-link-exact-active {
   @apply font-semibold text-purple-800 border-b-4 border-purple-800;

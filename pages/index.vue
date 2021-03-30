@@ -2,61 +2,67 @@
   <div>
     <Categories />
     <!-- Highlight box -->
-    <div class="m-6">
-      <Highlight />
+    <div class="p-6 md:bg-gray-200 md:px-36">
+      <div class="md:bg-white md:p-6 rounded-lg">
+        <Highlight />
+      </div>
     </div>
     <!-- Gift Options -->
-    <div class="m-6 space-y-6 text-center">
+    <div class="m-6 md:m-12 space-y-6 text-center">
       <div class="text-2xl font-bold">What's the occasion?</div>
       <div class="text-gray-600 text-sm">
         Send the right gift for the right occasion!
       </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div @click="occasion = 3">
-          <Button
-            text="Birthday"
-            class="small"
-            :class="{
-              'secondary-selected': occasion === 3,
-              secondary: occasion !== 3,
-            }"
-          />
-        </div>
-        <div @click="occasion = 4">
-          <Button
-            text="Christmas"
-            class="small"
-            :class="{
-              'secondary-selected': occasion === 4,
-              secondary: occasion !== 4,
-            }"
-          />
-        </div>
-        <div @click="occasion = 5">
-          <Button
-            text="My Treat"
-            class="small"
-            :class="{
-              'secondary-selected': occasion === 5,
-              secondary: occasion !== 5,
-            }"
-          />
-        </div>
-        <div @click="occasion = 6">
-          <Button
-            text="Romance"
-            class="small"
-            :class="{
-              'secondary-selected': occasion === 6,
-              secondary: occasion !== 6,
-            }"
-          />
+      <div class="flex justify-center">
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 w-full md:w-half md:py-12 gap-4"
+        >
+          <div @click="occasion = 3">
+            <Button
+              text="Birthday"
+              class="small"
+              :class="{
+                'secondary-selected': occasion === 3,
+                secondary: occasion !== 3,
+              }"
+            />
+          </div>
+          <div @click="occasion = 4">
+            <Button
+              text="Christmas"
+              class="small"
+              :class="{
+                'secondary-selected': occasion === 4,
+                secondary: occasion !== 4,
+              }"
+            />
+          </div>
+          <div @click="occasion = 5">
+            <Button
+              text="My Treat"
+              class="small"
+              :class="{
+                'secondary-selected': occasion === 5,
+                secondary: occasion !== 5,
+              }"
+            />
+          </div>
+          <div @click="occasion = 6">
+            <Button
+              text="Romance"
+              class="small"
+              :class="{
+                'secondary-selected': occasion === 6,
+                secondary: occasion !== 6,
+              }"
+            />
+          </div>
         </div>
       </div>
     </div>
     <!-- Sliders -->
-    <div class="w-screen my-6">
-      <div class="flex no-scrollbar">
+    <div class="w-screen my-6 md:my-12">
+      <div class="flex no-scrollbar md:justify-center">
         <div class="p-3"></div>
         <div class="bg-gray-200 rounded-lg">
           <div class="flex space-x-6">
@@ -94,21 +100,23 @@
       </div>
     </div>
     <!-- Instructions -->
-    <div class="mt-6 px-6 py-12 bg-gray-200">
-      <div class="text-xl text-center font-bold mb-6">How to Use</div>
-      <div class="space-y-12">
-        <div class="grid grid-cols-4 text-purple-800 text-sm">
+    <div class="mt-6 px-6 py-12 bg-gray-200 md:bg-white" id="how_use">
+      <div class="text-xl md:text-2xl text-center font-bold mb-6">
+        How to Use Gift Ellie
+      </div>
+      <div class="space-y-12 md:px-36">
+        <div class="grid grid-cols-4 text-purple-800 text-sm md:text-lg">
           <div class="flex items-center justify-center h-20">
-            <div class="h-6 w-6"><Search /></div>
+            <div class="h-6 w-6 md:h-8 md:w-8"><Search /></div>
           </div>
           <div class="col-span-3 h-full flex flex-col justify-center">
             <div class="font-bold">1. Search for the gift</div>
             <div>Search for the gift that you want to send to others.</div>
           </div>
         </div>
-        <div class="grid grid-cols-4 text-purple-800 text-sm">
+        <div class="grid grid-cols-4 text-purple-800 text-sm md:text-lg">
           <div class="flex items-center justify-center h-20">
-            <div class="h-6 w-6"><Write /></div>
+            <div class="h-6 w-6 md:h-8 md:w-8"><Write /></div>
           </div>
           <div class="col-span-3 h-full flex flex-col justify-center">
             <div class="font-bold">2. Personalize the gift</div>
@@ -117,18 +125,18 @@
             </div>
           </div>
         </div>
-        <div class="grid grid-cols-4 text-purple-800 text-sm">
+        <div class="grid grid-cols-4 text-purple-800 text-sm md:text-lg">
           <div class="flex items-center justify-center h-20">
-            <div class="h-6 w-6"><Card /></div>
+            <div class="h-6 w-6 md:h-8 md:w-8"><Card /></div>
           </div>
           <div class="col-span-3 h-full flex flex-col justify-center">
             <div class="font-bold">3. Pay for the gift</div>
             <div>Pay for your gift.</div>
           </div>
         </div>
-        <div class="grid grid-cols-4 text-purple-800 text-sm">
+        <div class="grid grid-cols-4 text-purple-800 text-sm md:text-lg">
           <div class="flex items-center justify-center h-20">
-            <div class="h-6 w-6"><Mail /></div>
+            <div class="h-6 w-6 md:h-8 md:w-8"><Mail /></div>
           </div>
           <div class="col-span-3 h-full flex flex-col justify-center">
             <div class="font-bold">4. Send the gift</div>

@@ -17,9 +17,9 @@
           /></NuxtLink>
         </div>
       </div>
-      <div class="w-2/5">
+      <div class="w-2/5 flex justify-end">
         <img
-          class="w-full object-cover"
+          class="object-cover md:h-56 md:pb-8"
           :src="highlight.gift.image.url"
           alt=""
         />

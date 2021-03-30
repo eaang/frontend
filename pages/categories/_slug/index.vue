@@ -1,8 +1,8 @@
 <template>
   <div>
     <div><Categories /></div>
-    <div class="container mx-auto px-4 py-4">
-      <div class="grid grid-cols-2 gap-4">
+    <div class="container mx-auto px-4 py-4 md:py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-16">
         <div v-for="gift in category.gifts" :key="gift.id">
           <GiftCard :gift="gift" />
         </div>
