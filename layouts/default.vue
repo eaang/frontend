@@ -7,6 +7,7 @@
       @click="$nuxt.$emit('closeSidebar')"
     ></div>
     <Header class="z-30" />
+    <Categories class="hidden md:block" />
     <Nuxt />
     <Footer />
   </div>

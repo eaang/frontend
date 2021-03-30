@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Categories />
     <!-- Highlight box -->
     <div class="p-6 md:bg-gray-200 md:px-36">
       <div class="md:bg-white md:p-6 rounded-lg">

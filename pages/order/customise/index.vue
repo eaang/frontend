@@ -1,20 +1,22 @@
 <template>
-  <div>
+  <div
+    class="container md:mx-auto md:px-36 md:py-12 md:flex-row md:justify-center"
+  >
     <div class="w-full h-12">
-      <div class="flex h-full items-center pl-6 font-semibold text-xl">
-        Customise Your Gift
+      <div class="flex h-full items-center pl-6">
+        <div class="text-2xl md:text-4xl font-bold">Customise Your Gift</div>
       </div>
     </div>
 
-    <div class="py-6 space-y-6" :style="bgImage">
-      <div class="mx-6 flex justify-around">
+    <div class="py-6 md:mx-6 space-y-6 md:mt-12 md:flex" :style="bgImage">
+      <div class="mx-6 flex md:w-half justify-around">
         <img
           :src="order.gift.image.url"
           alt=""
           class="h-56 w-56 object-cover"
         />
       </div>
-      <div class="h-40 mx-6">
+      <div class="h-40 md:flex-grow mx-6">
         <textarea
           class="w-full h-full px-4 py-2 border border-black rounded"
           v-model="message"

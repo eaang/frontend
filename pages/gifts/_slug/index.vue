@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Categories class="hidden md:block" />
     <div v-if="gift.id">
       <!-- Purchasing Item - desktop layout -->
       <div class="container mx-auto px-36 py-12 hidden md:flex">
@@ -68,7 +67,7 @@
       <div class="border-b border-gray-200 mx-36 hidden md:block"></div>
 
       <!-- Purchasing Item - mobile layout -->
-      <div class="container mx-auto px-4 pt-4 space-y-6 block md:hidden">
+      <div class="container mx-auto px-4 py-12 space-y-6 block md:hidden">
         <!-- Picture -->
         <div class="space-y-2">
           <div class="flex justify-center">

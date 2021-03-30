@@ -12,7 +12,9 @@
       <Logo class="block md:hidden" />
     </div>
     <!-- Main Portion -->
-    <Nuxt />
+    <div class="flex justify-center">
+      <Nuxt class="w-full md:w-half" />
+    </div>
   </div>
 </template>
 

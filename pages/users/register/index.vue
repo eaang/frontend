@@ -1,6 +1,8 @@
 <template>
   <div class="container mx-auto mt-12 px-6">
-    <div class="font-bold text-center text-xl w-full">Welcome!</div>
+    <div class="font-bold text-center text-xl w-full">
+      Welcome to Gift Ellie!
+    </div>
     <div class="my-12">
       <Notification v-if="success" type="success" :message="success" />
       <Notification v-if="error" type="danger" :message="error" />
