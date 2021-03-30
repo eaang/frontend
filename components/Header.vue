@@ -27,14 +27,27 @@
               <div class="">How to Use</div>
             </div></a
           >
-          <nuxt-link to="/users/login">
+
+          <div v-if="!isAuthenticated">
+            <nuxt-link to="/users/login"
+              ><div class="p-2 space-x-2 flex items-center">
+                <div class="h-6 w-6 text-purple-800">
+                  <Login />
+                </div>
+                <div class="">Log In / Sign Up</div>
+              </div></nuxt-link
+            >
+          </div>
+
+          <div v-if="isAuthenticated" @click="logout" class="cursor-pointer">
             <div class="p-2 space-x-2 flex items-center">
               <div class="h-6 w-6 text-purple-800">
                 <Login />
               </div>
-              <div class="">Login</div>
+              <div class="">Log Out</div>
             </div>
-          </nuxt-link>
+          </div>
+
           <nuxt-link to="/order/checkout">
             <div class="p-2 space-x-2 flex items-center">
               <div class="h-6 w-6 text-purple-800">
@@ -57,3 +70,19 @@
     </div>
   </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+  },
+  methods: {
+    async logout() {
+      this.$nuxt.$emit('closeSidebar')
+      await this.$auth.logout()
+    },
+  },
+}
+</script>
